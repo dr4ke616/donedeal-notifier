@@ -39,7 +39,7 @@ class Email(object):
         if self.mail_user is not None or self.mail_passwd is not None:
             smtpserver.ehlo()
             smtpserver.starttls()
-            smtpserver.ehlo
+            # smtpserver.ehlo
             smtpserver.login(self.mail_user, self.mail_passwd)
 
     def attach(self, attachment):
@@ -57,7 +57,6 @@ class Email(object):
 
         smtpserver.sendmail(self.me, self.you, str(self))
         smtpserver.close()
-        smtpserver.quit()
 
 
 if __name__ == '__main__':
