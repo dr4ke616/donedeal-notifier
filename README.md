@@ -22,4 +22,4 @@ $ python notifier/app.py
 ```
 
 ### Config
-The config contains the query you want to run on DoneDeal and the settings for your email account. The timedelta for the time to query and format is a little wierd and hacky. DoneDeal's API doesnt seem to allow you to query for percise times (or at least I havent found a way as there is no documentation for it). `timedelta_amount` must be a number between 1 and N and `timedelta_format`can only be either `day` or `hour`
+The config (`notifier/config.py`) contains the query you want to run on DoneDeal and the settings for your email account. The timedelta for the time to query and format is a little wierd and hacky. DoneDeal's API doesnt seem to allow you to query for percise times (or at least I havent found a way as there is no documentation for it). `timedelta_amount` must be a number between 1 and N and `timedelta_format`can only be either `day` or `hour`
