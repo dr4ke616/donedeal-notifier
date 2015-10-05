@@ -1,3 +1,4 @@
-twisted >= 10.2.0
-routes
-coverage
+pyasn1
+requests
+pyopenssl
+ndg-httpsclient
