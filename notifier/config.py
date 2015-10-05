@@ -15,5 +15,11 @@ donedeal = {
 mail = {
     'sender_address': 'adamdrakeford@gmail.com',
     'reciever_address': 'adamdrakeford@gmail.com',
-    'subject': 'Bike Hunt: DoneDeal'
+    'subject': 'Bike Hunt: DoneDeal',
+    'settings': {
+        'mail_server': 'smtp.gmail.com',
+        'port': 587,
+        'mail_user': '',
+        'mail_passwd': ''
+    }
 }

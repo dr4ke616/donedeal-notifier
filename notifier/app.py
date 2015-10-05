@@ -22,7 +22,8 @@ def main():
         config.mail['sender_address'],
         config.mail['reciever_address'],
         config.mail['subject'],
-        response
+        response,
+        **config.mail['settings']
     )
 
 

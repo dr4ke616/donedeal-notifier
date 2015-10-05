@@ -8,6 +8,6 @@ class MailManager(object):
         self.client = client
         self.render = render
 
-    def send_mail(self, me, you, subject, data):
+    def send_mail(self, me, you, subject, data, **kwargs):
         body = self.render().execute(data=data)
-        self.client(me, you, subject, body).send()
+        self.client(me, you, subject, body, **kwargs).send()
