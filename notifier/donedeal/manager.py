@@ -71,10 +71,9 @@ class QueryImageManager(QueryManager):
             if delta != content['age']:
                 continue
 
-            dic = content.copy()
-            dic['photos'] = [
+            photos = [
                 photo[size] for photo in content['photos']
             ]
-            d.append(dic)
+            d.append((content['header'], content['description'], photos))
 
         return d

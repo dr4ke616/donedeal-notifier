@@ -12,6 +12,7 @@ class Email(object):
     port = 0
     mail_user = None
     mail_passwd = None
+    content_type = 'html'
 
     def __init__(self, me, you, subject, body, **kwargs):
         self.me = me
@@ -32,7 +33,7 @@ class Email(object):
         mime['Subject'] = self.subject
         mime['From'] = self.me
         mime['To'] = self.you
-        mime.attach(MIMEText(self.body, 'plain'))
+        mime.attach(MIMEText(self.body, self.content_type))
         self._message = mime
 
     def _authenticate(self, smtpserver):
