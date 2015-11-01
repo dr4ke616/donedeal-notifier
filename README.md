@@ -3,7 +3,6 @@
 Quick & dirty Python app to notify you via email of latest items sold on DoneDeal.
 
 
-
 ### Install
 Make sure you have installed `libffi-dev` and `libssl-dev`. On Ubuntu machines run:
 ```bash
@@ -26,4 +25,4 @@ The config (`notifier/config.py`) contains the query you want to run on DoneDeal
 - timedelta_amount: A number between `1` and `N` is the number of days/hours to query for
 - timedelta_format: Can only be either `day` or `hour`
 - size: The image size you want. One of `small`, `medium`, or `large`
-- query: Is broken into `words`, `section`, `adType`, `sort`, `max`. Look at [DoneDeal](https://www.donedeal.ie) for more information on this.
+- query: Is broken into `words`, `section`, `adType`, `sort`, and `max`. Look at [DoneDeal](https://www.donedeal.ie) for more information on this.
