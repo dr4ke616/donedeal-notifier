@@ -1,4 +1,4 @@
-# Notifier
+# DoneDeal Notifier
 
 Quick & dirty Python app to notify you via email of latest items sold on DoneDeal.
 
