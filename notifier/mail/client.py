@@ -18,7 +18,7 @@ class Email(object):
         self.me = me
         self.you = you
         self.subject = subject
-        self.body = body
+        self.body = body.encode('utf-8')
 
         for key, value in kwargs.items():
             setattr(self, key, value)
