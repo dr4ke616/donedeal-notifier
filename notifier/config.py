@@ -20,13 +20,13 @@ donedeal = {
 }
 
 mail = {
-    'sender_address': '',
-    'reciever_address': '',
+    'sender_address': 'soeme-sender@gmail.com',
+    'reciever_address': ['soeme-reciever@gmail.com'],
     'subject': 'Car Hunt: DoneDeal',
     'settings': {
         'mail_server': 'smtp.gmail.com',
         'port': 587,
-        'mail_user': '',
-        'mail_passwd': ''
+        'mail_user': 'user-email@gmail.com',
+        'mail_passwd': 'password'
     }
 }
