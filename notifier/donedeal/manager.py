@@ -65,17 +65,8 @@ class QueryImageManager(QueryManager):
                 timedelta['operator']
             ).parse(content)
 
-        final_data = []
-        for con in content:
-            photos = [
-                photo[size] for photo in con['photos']
-            ]
-            final_data.append(
-                (con['header'], con['age'],
-                    con['description'], con['friendlyUrl'], photos)
-            )
-
         return [
             (con['header'], con['age'], con['description'], con['friendlyUrl'],
-                [photo[size] for photo in con['photos']]) for con in content
+                [photo[size] for photo
+                    in con.get('photos', [])]) for con in content
         ]
