@@ -12,11 +12,11 @@ OPERATORS = {
 
 class TimeDelta(object):
 
-    def __init__(self, amount, format, operator):
+    def __init__(self, amount, fmt, operator):
         if int(amount) < 0:
             raise ValueError('amount must be over zero')
 
-        if format not in TIME_FORMAT:
+        if fmt not in TIME_FORMAT:
             raise ValueError(
                 'Time format must be one of {}'
                 ''.format(', '.join(TIME_FORMAT))
@@ -29,10 +29,10 @@ class TimeDelta(object):
             )
 
         if int(amount) > 1:
-            format += 's'
+            fmt += 's'
 
         self.amount = amount
-        self.format = format
+        self.format = fmt
         self.operator = operator
 
     def parse(self, results):

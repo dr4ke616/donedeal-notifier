@@ -75,4 +75,7 @@ class QueryImageManager(QueryManager):
                     con['description'], con['friendlyUrl'], photos)
             )
 
-        return final_data
+        return [
+            (con['header'], con['age'], con['description'], con['friendlyUrl'],
+                [photo[size] for photo in con['photos']]) for con in content
+        ]
