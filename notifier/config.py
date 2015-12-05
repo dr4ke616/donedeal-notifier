@@ -3,9 +3,9 @@ donedeal = {
     "size": "medium",
     "timedelta": {
         "active": True,
-        "amount": 1,
+        "amount": 100,
         "format": "day",
-        "operator": "=="
+        "operator": "<"
     },
     "query": {
         "price_from": "100",
@@ -20,13 +20,13 @@ donedeal = {
 }
 
 mail = {
-    'sender_address': 'adamdrakeford@gmail.com',
-    'reciever_address': 'adamdrakeford@gmail.com',
+    'sender_address': '',
+    'reciever_address': '',
     'subject': 'Car Hunt: DoneDeal',
     'settings': {
         'mail_server': 'smtp.gmail.com',
         'port': 587,
-        'mail_user': 'adamdrakeford@gmail.com',
-        'mail_passwd': 'myjptxtzrrqdfywx'
+        'mail_user': '',
+        'mail_passwd': ''
     }
 }

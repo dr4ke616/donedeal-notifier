@@ -71,7 +71,8 @@ class QueryImageManager(QueryManager):
                 photo[size] for photo in con['photos']
             ]
             final_data.append(
-                (con['header'], con['description'], photos)
+                (con['header'], con['age'],
+                    con['description'], con['friendlyUrl'], photos)
             )
 
         return final_data
