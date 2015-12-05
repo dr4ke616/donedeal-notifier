@@ -12,9 +12,8 @@ from notifier.donedeal.manager import QueryImageManager  # noqa
 
 def main():
     response = QueryImageManager().pull_images_from_query(
-        config.donedeal['timedelta_amount'],
-        config.donedeal['timedelta_format'],
         config.donedeal['size'],
+        config.donedeal['timedelta'],
         **config.donedeal['query']
     )
 

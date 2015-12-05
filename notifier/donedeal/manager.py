@@ -1,4 +1,5 @@
 from client import DoneDeal
+from timedelta import TimeDelta
 
 
 class DoneDealManager(object):
@@ -37,7 +38,7 @@ class QueryManager(DoneDealManager):
 
 class QueryImageManager(QueryManager):
 
-    def pull_images_from_query(self, td_amount, td_format, size, **data):
+    def pull_images_from_query(self, size, timedelta, **data):
         """ Pull all image urls from response
             :param size: The size of the image. Can either
                 be small, medium or large
@@ -54,26 +55,23 @@ class QueryImageManager(QueryManager):
                 'medium or large for image size'
             )
 
-        if int(td_amount) < 0:
-            raise ValueError('td_amount must be over zero')
+        content = self.find(**data)['ads']
 
-        if td_format not in ('day', 'hour'):
-            raise ValueError('You need to specify either day or hour')
+        if timedelta['active']:
+            print('TimeDelta active.')
+            content = TimeDelta(
+                timedelta['amount'],
+                timedelta['format'],
+                timedelta['operator']
+            ).parse(content)
 
-        if int(td_amount) > 1:
-            td_format += 's'
-
-        delta = '{} {}'.format(td_amount, td_format)
-
-        d = []
-        for content in self.find(**data)['ads']:
-            # O(N) - hacky as fuck! :(
-            if delta != content['age']:
-                continue
-
+        final_data = []
+        for con in content:
             photos = [
-                photo[size] for photo in content['photos']
+                photo[size] for photo in con['photos']
             ]
-            d.append((content['header'], content['description'], photos))
+            final_data.append(
+                (con['header'], con['description'], photos)
+            )
 
-        return d
+        return final_data
