@@ -16,23 +16,21 @@ class Email(object):
 
     def __init__(self, me, you, subject, body, **kwargs):
         self.me = me
-        self.you = you
+        self.you = you if isinstance(you, list) else [you]
         self.subject = subject
         self.body = body.encode('utf-8')
 
         for key, value in kwargs.items():
             setattr(self, key, value)
 
-        self._build_mime_multipart()
-
     def __str__(self):
         return self._message.as_string()
 
-    def _build_mime_multipart(self):
+    def _build_mime_multipart(self, location):
         mime = MIMEMultipart('alternative')
         mime['Subject'] = self.subject
         mime['From'] = self.me
-        mime['To'] = self.you
+        mime['To'] = location
         mime.attach(MIMEText(self.body, self.content_type))
         self._message = mime
 
@@ -53,11 +51,13 @@ class Email(object):
 
     def send(self):
 
-        smtpserver = smtplib.SMTP(self.mail_server, self.port)
-        self._authenticate(smtpserver)
+        for location in self.you:
+            self._build_mime_multipart(location)
+            smtpserver = smtplib.SMTP(self.mail_server, self.port)
+            self._authenticate(smtpserver)
 
-        smtpserver.sendmail(self.me, self.you, str(self))
-        smtpserver.close()
+            smtpserver.sendmail(self.me, location, str(self))
+            smtpserver.close()
 
 
 if __name__ == '__main__':
