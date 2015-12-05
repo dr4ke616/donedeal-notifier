@@ -37,7 +37,7 @@ This is a hacky time based query. DoneDeal's API doesn't seem to allow you to qu
 },
 ```
 
-### Sample Queries:
+### Sample Queries
 Search for newest ads with a maximum result of 42 containing Volvo S40s between 100 and 700 Euro
 ```python
 "query": {
@@ -64,3 +64,10 @@ Search for newest ads with a maximum result of 42, containing the word "trek" in
 ```
 
 Note: The `max` value needs to be a multiple of three to take affect. This was probably Donedeals' way to handle the grid view they use on their site.
+
+### Email
+Basic email configuration
+- *sender_address*: The sender address (i.e your address)
+- *reciever_address*: A list of one or more recipients
+- *subject*: The subject you want for the email
+- *settings*: In order to send the email, you need to set the apropriate mail settings. This can be found with your email provider.
